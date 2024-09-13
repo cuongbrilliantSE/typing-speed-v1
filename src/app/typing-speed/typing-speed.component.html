@@ -1,0 +1,57 @@
+<div class="reload-box">
+  <p-tabView>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+
+      </ng-template>
+
+      <ng-template pTemplate="content">
+        <div id="paragraph">
+          <div id="row1"></div>
+        </div>
+
+        <div class="typing-speed">
+          <div class="typing-speed__inner">
+            <input type="text"
+                   autofocus
+                   [disabled]="isInputDisabled"
+                   [(ngModel)]="typedWord"
+                   (input)="initTyping($event)"
+                   id="inputfield"
+                   class="typing-speed__input">
+            <div id="timer" class="text-xl typing-speed__timer">1:00</div>
+
+            <button class="btn btn-primary btn-reset" id="reload-btn" (click)="reloadBtn()">
+              <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.7757 5.58353L15.8292 4.46508C15.0266 3.60891 14.0609 2.92755 12.9909 2.46246C11.9209 1.99738 10.7688 1.7583 9.60495 1.75977C4.8543 1.75977 1 5.67457 1 10.4998C1 15.325 4.8543 19.2398 9.60495 19.2398C11.3847 19.2397 13.1206 18.6793 14.5738 17.6359C16.0271 16.5925 17.1263 15.1172 17.72 13.4131" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"></path><path d="M19.9999 3.2036V7.91749C19.9999 8.09838 19.9191 8.27187 19.7752 8.39978C19.6313 8.52769 19.4361 8.59955 19.2326 8.59955H13.9291C13.2452 8.59955 12.9028 7.86505 13.3862 7.43536L18.6901 2.72104C19.1736 2.29049 19.9999 2.59571 19.9999 3.2036Z" fill="currentColor"></path></svg>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="results">
+          <ul class="result-details">
+
+            <li class="wpm">
+              <p>WPM:</p>
+              <span>{{wpm}}</span>
+            </li>
+            <li class="cpm">
+              <p>Accuracy:</p>
+              <span>{{ calculateAccuracy() | percent:'1.2-2'}}</span>
+            </li>
+            <li class="mistake">
+              <p>Mistakes:</p>
+              <span>{{mistake}}</span>
+            </li>
+          </ul>
+        </div>
+      </ng-template>
+
+    </p-tabPanel>
+
+  </p-tabView>
+</div>
+
+
+
+
